@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		EC8C7CC32B436DD200776DDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C7CC22B436DD200776DDF /* AppDelegate.swift */; };
-		EC8C7CC52B436DD200776DDF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C7CC42B436DD200776DDF /* SceneDelegate.swift */; };
 		EC8C7CC72B436DD200776DDF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C7CC62B436DD200776DDF /* ViewController.swift */; };
-		EC8C7CCA2B436DD200776DDF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8C7CC82B436DD200776DDF /* Main.storyboard */; };
 		EC8C7CCC2B436DD400776DDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC8C7CCB2B436DD400776DDF /* Assets.xcassets */; };
 		EC8C7CCF2B436DD400776DDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8C7CCD2B436DD400776DDF /* LaunchScreen.storyboard */; };
+		EC8C7CD92B436F0000776DDF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC8C7CD82B436F0000776DDF /* SnapKit */; };
+		EC8C7CDB2B436F0000776DDF /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = EC8C7CDA2B436F0000776DDF /* SnapKit-Dynamic */; };
+		EC8C7CDF2B43776200776DDF /* ContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C7CDE2B43776200776DDF /* ContainerModel.swift */; };
+		EC8C7CE12B4377F500776DDF /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C7CE02B4377F500776DDF /* ContainerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EC8C7CBF2B436DD200776DDF /* NotionHw4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotionHw4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC8C7CC22B436DD200776DDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EC8C7CC42B436DD200776DDF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EC8C7CC62B436DD200776DDF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EC8C7CC92B436DD200776DDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC8C7CCB2B436DD400776DDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC8C7CCE2B436DD400776DDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC8C7CD02B436DD400776DDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC8C7CDE2B43776200776DDF /* ContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerModel.swift; sourceTree = "<group>"; };
+		EC8C7CE02B4377F500776DDF /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC8C7CD92B436F0000776DDF /* SnapKit in Frameworks */,
+				EC8C7CDB2B436F0000776DDF /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +60,39 @@
 		EC8C7CC12B436DD200776DDF /* NotionHw4 */ = {
 			isa = PBXGroup;
 			children = (
-				EC8C7CC22B436DD200776DDF /* AppDelegate.swift */,
-				EC8C7CC42B436DD200776DDF /* SceneDelegate.swift */,
+				EC8C7CD62B436E8800776DDF /* Application */,
+				EC8C7CDC2B43770B00776DDF /* Models */,
+				EC8C7CDD2B43771000776DDF /* Views */,
 				EC8C7CC62B436DD200776DDF /* ViewController.swift */,
-				EC8C7CC82B436DD200776DDF /* Main.storyboard */,
-				EC8C7CCB2B436DD400776DDF /* Assets.xcassets */,
-				EC8C7CCD2B436DD400776DDF /* LaunchScreen.storyboard */,
-				EC8C7CD02B436DD400776DDF /* Info.plist */,
+				EC8C7CC22B436DD200776DDF /* AppDelegate.swift */,
 			);
 			path = NotionHw4;
+			sourceTree = "<group>";
+		};
+		EC8C7CD62B436E8800776DDF /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				EC8C7CD02B436DD400776DDF /* Info.plist */,
+				EC8C7CCD2B436DD400776DDF /* LaunchScreen.storyboard */,
+				EC8C7CCB2B436DD400776DDF /* Assets.xcassets */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		EC8C7CDC2B43770B00776DDF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EC8C7CDE2B43776200776DDF /* ContainerModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EC8C7CDD2B43771000776DDF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EC8C7CE02B4377F500776DDF /* ContainerView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +111,10 @@
 			dependencies = (
 			);
 			name = NotionHw4;
+			packageProductDependencies = (
+				EC8C7CD82B436F0000776DDF /* SnapKit */,
+				EC8C7CDA2B436F0000776DDF /* SnapKit-Dynamic */,
+			);
 			productName = NotionHw4;
 			productReference = EC8C7CBF2B436DD200776DDF /* NotionHw4.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +143,9 @@
 				Base,
 			);
 			mainGroup = EC8C7CB62B436DD200776DDF;
+			packageReferences = (
+				EC8C7CD72B436F0000776DDF /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = EC8C7CC02B436DD200776DDF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +162,6 @@
 			files = (
 				EC8C7CCF2B436DD400776DDF /* LaunchScreen.storyboard in Resources */,
 				EC8C7CCC2B436DD400776DDF /* Assets.xcassets in Resources */,
-				EC8C7CCA2B436DD200776DDF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +172,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC8C7CE12B4377F500776DDF /* ContainerView.swift in Sources */,
 				EC8C7CC72B436DD200776DDF /* ViewController.swift in Sources */,
 				EC8C7CC32B436DD200776DDF /* AppDelegate.swift in Sources */,
-				EC8C7CC52B436DD200776DDF /* SceneDelegate.swift in Sources */,
+				EC8C7CDF2B43776200776DDF /* ContainerModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		EC8C7CC82B436DD200776DDF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EC8C7CC92B436DD200776DDF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EC8C7CCD2B436DD400776DDF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -294,10 +321,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X6KB2A8YM9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NotionHw4/Info.plist;
+				INFOPLIST_FILE = NotionHw4/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -307,9 +333,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.raynelz.NotionHw4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -322,10 +351,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X6KB2A8YM9;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NotionHw4/Info.plist;
+				INFOPLIST_FILE = NotionHw4/Application/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -335,9 +363,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.raynelz.NotionHw4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -363,6 +394,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EC8C7CD72B436F0000776DDF /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EC8C7CD82B436F0000776DDF /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC8C7CD72B436F0000776DDF /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		EC8C7CDA2B436F0000776DDF /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC8C7CD72B436F0000776DDF /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EC8C7CB72B436DD200776DDF /* Project object */;
 }

@@ -18,10 +18,18 @@ final class ViewController: UIViewController {
     private let transactionDateLabel = UILabel()
     private let containersStackView = UIStackView()
     
+    private let detailsView = UIView()
+    private let infoImageView = UIImageView()
+    private let detailsLabel = UILabel()
+    private let caretImageView = UIImageView()
+    private let detailsButton = UIButton()
+    
+    
+    
     private let containers = [
         ContainerView() : ContainerModel(id: 1, title: "Open\nreceipt", image: .receipt),
         ContainerView() : ContainerModel(id: 2, title: "Create\nsample", image: .favourite),
-        ContainerView() : ContainerModel(id: 4, title: "Repeat\npayment", image: .repeat)
+        ContainerView() : ContainerModel(id: 3, title: "Repeat\npayment", image: .repeat)
     ].sorted { $0.value.id < $1.value.id }
     
     
@@ -33,6 +41,7 @@ final class ViewController: UIViewController {
         setupContainersData()
         setupAppearance()
         setupText()
+        setupBehavior()
     }
     
 }
@@ -48,8 +57,18 @@ private extension ViewController {
             totalCostLabel,
             feeLabel,
             transactionDateLabel,
-            containersStackView
+            containersStackView,
+            detailsView
         ].forEach { view.addSubview($0) }
+        
+        
+        [
+            infoImageView,
+            detailsLabel,
+            caretImageView,
+            detailsButton
+        ].forEach { detailsView.addSubview($0) }
+        
     }
     
 }
@@ -88,7 +107,33 @@ private extension ViewController {
         containersStackView.snp.makeConstraints { make in
             make.top.equalTo(transactionDateLabel.snp.bottom).offset(24)
             make.horizontalEdges.equalToSuperview().inset(16)
-            make.bottom.lessThanOrEqualTo(view.snp.bottom).offset(34)
+        }
+        
+        detailsView.snp.makeConstraints { make in
+            make.top.equalTo(containersStackView.snp.bottom).offset(34)
+            make.horizontalEdges.equalToSuperview()
+            make.bottom.equalTo(view.snp.bottom)
+        }
+        
+        infoImageView.snp.makeConstraints { make in
+            make.top.equalTo(detailsView.snp.topMargin).offset(20)
+            make.leading.equalTo(detailsView.snp.leading).offset(16)
+        }
+        
+        detailsLabel.snp.makeConstraints { make in
+            make.top.equalTo(detailsView.snp.topMargin).offset(28)
+            make.leading.equalTo(infoImageView.snp.trailing).offset(12)
+        }
+        
+        caretImageView.snp.makeConstraints { make in
+            make.top.equalTo(detailsView.snp.topMargin).offset(32)
+            make.trailing.equalTo(detailsView.snp.trailing).inset(16)
+        }
+        
+        detailsButton.snp.makeConstraints { make in
+            make.top.equalTo(detailsView.snp.bottomMargin).inset(52)
+            make.horizontalEdges.equalToSuperview().inset(16)
+            make.height.equalTo(52)
         }
         
     }
@@ -145,7 +190,21 @@ private extension ViewController {
             label.textAlignment = .center
             label.numberOfLines = 0
         }
-
+        
+        detailsView.backgroundColor = .systemBackground
+        detailsView.layer.cornerRadius = 12
+        
+        infoImageView.image = .info
+        infoImageView.contentMode = .scaleAspectFit
+        
+        detailsLabel.textColor = .label
+        detailsLabel.font = .systemFont(ofSize: 16, weight: .regular)
+        
+        caretImageView.image = .caret
+        caretImageView.contentMode = .scaleAspectFit
+        
+        detailsButton.layer.cornerRadius = 12
+        detailsButton.backgroundColor = .systemBlue
     }
     
 }
@@ -162,7 +221,79 @@ private extension ViewController {
         feeLabel.text = "No commission"
         
         transactionDateLabel.text = "Completed, 12 September 16:00"
+        
+        detailsLabel.text = "Operation details"
+        
+        detailsButton.setTitle("To Main", for: .normal)
     }
+    
+}
+
+//MARK: - Setup Behavior
+
+private extension ViewController {
+    
+    func setupBehavior() {
+        
+        containers.forEach({ view, model in
+            
+            let gesture = UITapGestureRecognizer(target: self, action:  #selector (viewGestureTest(sender:)))
+            let gestureTwo = UITapGestureRecognizer(target: self, action: #selector(receiptGesture(sender:)))
+            let gestureThree = UITapGestureRecognizer(target: self, action: #selector(paymentGesture(sender:)))
+            
+            if model.id == 1 {
+                view.addGestureRecognizer(gesture)
+            } else if model.id == 2 {
+                view.addGestureRecognizer(gestureTwo)
+            } else {
+                view.addGestureRecognizer(gestureThree)
+            }
+        })
+        
+        
+        detailsButton.addTarget(self, action: #selector(testTap(sender:)), for: .touchUpInside)
+        
+    }
+    
+    @objc
+    func viewGestureTest(sender: UITapGestureRecognizer) {
+        print("Open Receipt Tapped!")
+        containers.forEach { view, model in
+            if model.id == 1 {
+                view.set(textColor: .blue)
+                view.set(image: .s)
+            }
+        }
+        //viewToChange.set(textColor: .blue)
+    }
+    
+    @objc
+    func receiptGesture(sender: UITapGestureRecognizer) {
+        print("Create Sample Tapped!")
+    }
+    
+    @objc
+    func paymentGesture(sender: UITapGestureRecognizer) {
+        print("Repeat Payment Tapped!")
+    }
+    
+    @objc
+    func testTap(sender: UIButton) {
+        print("Test passed!")
+        animateView(sender)
+    }
+    
+    func animateView(_ viewToAnimate: UIView) {
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5) {
+            viewToAnimate.transform = CGAffineTransform(scaleX: 0.92, y: 0.92)
+        }
+        UIView.animate(withDuration: 0.15, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 2, options: .curveEaseIn) {
+            viewToAnimate.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
+    }
+    
+    
     
 }
 

@@ -46,17 +46,18 @@ private extension ContainerView {
 private extension ContainerView {
     
     func setupLayout() {
+        
         imageView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(16)
             make.centerX.equalToSuperview()
-            make.height.equalTo(36)
-            make.width.equalTo(36)
         }
         
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(imageView.snp.bottom).offset(8)
             make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-16)
         }
+        
     }
     
 }
@@ -74,8 +75,8 @@ private extension ContainerView {
         titleLabel.numberOfLines = 2
         
         
-        backgroundColor = .green
-        layer.cornerRadius = 15
+        backgroundColor = .white
+        layer.cornerRadius = 16
     }
     
 }
@@ -99,3 +100,21 @@ extension ContainerView {
     }
     
 }
+
+//MARK: Set Text Color
+extension ContainerView {
+    
+    func set(textColor: UIColor) {
+        titleLabel.textColor = textColor
+    }
+    
+}
+
+////MARK: Set Image Color
+//extension ContainerView {
+//    
+//    func set(imageColor: UIColor) {
+//        imageView.tintColor = imageColor
+//    }
+//    
+//}

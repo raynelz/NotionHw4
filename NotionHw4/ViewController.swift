@@ -25,20 +25,21 @@ final class ViewController: UIViewController {
     private let detailsButton = UIButton()
     
     
+    private let items = [
+        ContainerModel(id: 0, title: "Open\nreceipt", image: .receipt),
+        ContainerModel(id: 1, title: "Create\nsample", image: .favourite),
+        ContainerModel(id: 2, title: "Repeat\npayment", image: .repeat)
+    ].sorted { $0.id < $1.id }
     
-    private let containers = [
-        ContainerView() : ContainerModel(id: 1, title: "Open\nreceipt", image: .receipt),
-        ContainerView() : ContainerModel(id: 2, title: "Create\nsample", image: .favourite),
-        ContainerView() : ContainerModel(id: 3, title: "Repeat\npayment", image: .repeat)
-    ].sorted { $0.value.id < $1.value.id }
+    var colors = [UIColor.red, .green, .blue]
     
+    var debugMessages = ["Open receipt", "Create sample", "Repeat payment"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         embedViews()
         setupLayout()
         setupContainers()
-        setupContainersData()
         setupAppearance()
         setupText()
         setupBehavior()
@@ -145,19 +146,22 @@ private extension ViewController {
 private extension ViewController {
     
     func setupContainers() {
-        containers.forEach { view, _ in
+        
+        items.forEach { model in
+            let view = ContainerView()
+            view.configure(model: model)
+            
+            view.didSelectView = { [weak self] in
+                guard let self else { return }
+                view.set(textColor: colors[model.id])
+                view.set(image: .receipt)
+            }
+            
             containersStackView.addArrangedSubview(view)
         }
     }
-    
-    func setupContainersData() {
-        containers.forEach { view, model in
-            view.set(text: model.title)
-            view.set(image: model.image)
-        }
-    }
-    
 }
+
 
 //MARK: - Setup Appearance
 
@@ -235,48 +239,9 @@ private extension ViewController {
     
     func setupBehavior() {
         
-        containers.forEach({ view, model in
-            
-            let gesture = UITapGestureRecognizer(target: self, action:  #selector (viewGestureTest(sender:)))
-            let gestureTwo = UITapGestureRecognizer(target: self, action: #selector(receiptGesture(sender:)))
-            let gestureThree = UITapGestureRecognizer(target: self, action: #selector(paymentGesture(sender:)))
-            
-            if model.id == 1 {
-                view.addGestureRecognizer(gesture)
-            } else if model.id == 2 {
-                view.addGestureRecognizer(gestureTwo)
-            } else {
-                view.addGestureRecognizer(gestureThree)
-            }
-        })
-        
-        
         detailsButton.addTarget(self, action: #selector(testTap(sender:)), for: .touchUpInside)
+    }
         
-    }
-    
-    @objc
-    func viewGestureTest(sender: UITapGestureRecognizer) {
-        print("Open Receipt Tapped!")
-        containers.forEach { view, model in
-            if model.id == 1 {
-                view.set(textColor: .blue)
-                view.set(image: .s)
-            }
-        }
-        //viewToChange.set(textColor: .blue)
-    }
-    
-    @objc
-    func receiptGesture(sender: UITapGestureRecognizer) {
-        print("Create Sample Tapped!")
-    }
-    
-    @objc
-    func paymentGesture(sender: UITapGestureRecognizer) {
-        print("Repeat Payment Tapped!")
-    }
-    
     @objc
     func testTap(sender: UIButton) {
         print("Test passed!")
@@ -296,7 +261,3 @@ private extension ViewController {
     
     
 }
-
-#Preview(traits: .portrait, body: {
-    ViewController()
-})

@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC6CFFAD2B4C27330039F69F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC6CFFAC2B4C27330039F69F /* SnapKit */; };
+		EC6CFFAF2B4C27330039F69F /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = EC6CFFAE2B4C27330039F69F /* SnapKit-Dynamic */; };
 		EC8C7CC32B436DD200776DDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C7CC22B436DD200776DDF /* AppDelegate.swift */; };
 		EC8C7CC72B436DD200776DDF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C7CC62B436DD200776DDF /* ViewController.swift */; };
 		EC8C7CCC2B436DD400776DDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC8C7CCB2B436DD400776DDF /* Assets.xcassets */; };
 		EC8C7CCF2B436DD400776DDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8C7CCD2B436DD400776DDF /* LaunchScreen.storyboard */; };
-		EC8C7CD92B436F0000776DDF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = EC8C7CD82B436F0000776DDF /* SnapKit */; };
-		EC8C7CDB2B436F0000776DDF /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = EC8C7CDA2B436F0000776DDF /* SnapKit-Dynamic */; };
 		EC8C7CDF2B43776200776DDF /* ContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C7CDE2B43776200776DDF /* ContainerModel.swift */; };
 		EC8C7CE12B4377F500776DDF /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8C7CE02B4377F500776DDF /* ContainerView.swift */; };
 /* End PBXBuildFile section */
@@ -33,8 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC8C7CD92B436F0000776DDF /* SnapKit in Frameworks */,
-				EC8C7CDB2B436F0000776DDF /* SnapKit-Dynamic in Frameworks */,
+				EC6CFFAD2B4C27330039F69F /* SnapKit in Frameworks */,
+				EC6CFFAF2B4C27330039F69F /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,8 +112,8 @@
 			);
 			name = NotionHw4;
 			packageProductDependencies = (
-				EC8C7CD82B436F0000776DDF /* SnapKit */,
-				EC8C7CDA2B436F0000776DDF /* SnapKit-Dynamic */,
+				EC6CFFAC2B4C27330039F69F /* SnapKit */,
+				EC6CFFAE2B4C27330039F69F /* SnapKit-Dynamic */,
 			);
 			productName = NotionHw4;
 			productReference = EC8C7CBF2B436DD200776DDF /* NotionHw4.app */;
@@ -144,7 +144,7 @@
 			);
 			mainGroup = EC8C7CB62B436DD200776DDF;
 			packageReferences = (
-				EC8C7CD72B436F0000776DDF /* XCRemoteSwiftPackageReference "SnapKit" */,
+				EC6CFFAB2B4C27330039F69F /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = EC8C7CC02B436DD200776DDF /* Products */;
 			projectDirPath = "";
@@ -396,9 +396,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		EC8C7CD72B436F0000776DDF /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		EC6CFFAB2B4C27330039F69F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:SnapKit/SnapKit.git";
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.7.0;
@@ -407,14 +407,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		EC8C7CD82B436F0000776DDF /* SnapKit */ = {
+		EC6CFFAC2B4C27330039F69F /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EC8C7CD72B436F0000776DDF /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = EC6CFFAB2B4C27330039F69F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		EC8C7CDA2B436F0000776DDF /* SnapKit-Dynamic */ = {
+		EC6CFFAE2B4C27330039F69F /* SnapKit-Dynamic */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = EC8C7CD72B436F0000776DDF /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = EC6CFFAB2B4C27330039F69F /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -14,6 +14,8 @@ class ContainerView: UIView {
     private let titleLabel = UILabel()
     private let imageView = UIImageView()
     
+    var didSelectView: (() -> ())?
+    
     let text: String = ""
     let image: UIImage = .checkmark
     
@@ -22,12 +24,25 @@ class ContainerView: UIView {
         embedViews()
         setupLayout()
         setupAppearance()
+        
+        let gesture = UIGestureRecognizer(target: self, action: #selector (viewGestureTest(sender:)))
+        
+        addGestureRecognizer(gesture)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc
+    func viewGestureTest(sender: UIGestureRecognizer) {
+        didSelectView?()
+    }
+    
+    func configure(model: ContainerModel) {
+        titleLabel.text = model.title
+        imageView.image = model.image
+    }
 }
 
 //MARK: - Embed Views
@@ -109,12 +124,3 @@ extension ContainerView {
     }
     
 }
-
-////MARK: Set Image Color
-//extension ContainerView {
-//    
-//    func set(imageColor: UIColor) {
-//        imageView.tintColor = imageColor
-//    }
-//    
-//}

@@ -25,7 +25,7 @@ class ContainerView: UIView {
         setupLayout()
         setupAppearance()
         
-        let gesture = UIGestureRecognizer(target: self, action: #selector (viewGestureTest(sender:)))
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(viewGestureTest(sender:)))
         
         addGestureRecognizer(gesture)
     }
@@ -116,7 +116,8 @@ extension ContainerView {
     
 }
 
-//MARK: Set Text Color
+//MARK: - Set Text Color
+
 extension ContainerView {
     
     func set(textColor: UIColor) {

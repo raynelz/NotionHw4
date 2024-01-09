@@ -1,0 +1,138 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "100$" : {
+      "comment" : "totalCost label",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "100₽"
+          }
+        }
+      }
+    },
+    "Aleksander Dmitrievich V." : {
+      "comment" : "client full name",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Александр Дмитриевич В."
+          }
+        }
+      }
+    },
+    "Close Alert" : {
+      "comment" : "Action Alert button",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Закрыть Предупреждение"
+          }
+        }
+      }
+    },
+    "Completed, 12 September 16:00" : {
+      "comment" : "transaction status with date",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завершена, 12 Сентября 16:00"
+          }
+        }
+      }
+    },
+    "Congratulations! 🎉" : {
+      "comment" : "Alert title",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поздравляю! 🎉"
+          }
+        }
+      }
+    },
+    "Create sample" : {
+      "comment" : "create sample view label",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Создать шаблон"
+          }
+        }
+      }
+    },
+    "No commission" : {
+      "comment" : "fee label",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нет комиссии"
+          }
+        }
+      }
+    },
+    "Open receipt" : {
+      "comment" : "receipt view label",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть Чек"
+          }
+        }
+      }
+    },
+    "Operation details" : {
+      "comment" : "details label",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Детали операции"
+          }
+        }
+      }
+    },
+    "Repeat payment" : {
+      "comment" : "repeat payment view label",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повторить платёж"
+          }
+        }
+      }
+    },
+    "The alert is now working correct!" : {
+      "comment" : "Alert message",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Предупреждение работает корректно!"
+          }
+        }
+      }
+    },
+    "To Main" : {
+      "comment" : "button title",
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "На Главную"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

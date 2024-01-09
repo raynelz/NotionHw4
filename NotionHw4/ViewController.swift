@@ -19,19 +19,19 @@ final class ViewController: UIViewController {
     private let containersStackView = UIStackView()
     
     private let detailsView = UIView()
-    private let infoImageView = UIImageView()
+    private let infoButton = UIButton()
     private let detailsLabel = UILabel()
     private let caretImageView = UIImageView()
     private let detailsButton = UIButton()
     
     
     private let items = [
-        ContainerModel(id: 0, title: "Open\nreceipt", image: .receipt),
-        ContainerModel(id: 1, title: "Create\nsample", image: .favourite),
-        ContainerModel(id: 2, title: "Repeat\npayment", image: .repeat)
+        ContainerModel(id: 0, title: NSLocalizedString("Open receipt", comment: "receipt view label"), image: .receipt),
+        ContainerModel(id: 1, title: NSLocalizedString("Create sample", comment: "create sample view label"), image: .favourite),
+        ContainerModel(id: 2, title: NSLocalizedString("Repeat payment", comment: "repeat payment view label"), image: .repeat)
     ].sorted { $0.id < $1.id }
     
-    var colors = [UIColor.red, .green, .blue]
+    var colors = [UIColor.label, UIColor.green, UIColor.blue]
     
     var debugMessages = ["Open receipt", "Create sample", "Repeat payment"]
     
@@ -64,7 +64,7 @@ private extension ViewController {
         
         
         [
-            infoImageView,
+            infoButton,
             detailsLabel,
             caretImageView,
             detailsButton
@@ -116,14 +116,14 @@ private extension ViewController {
             make.bottom.equalTo(view.snp.bottom)
         }
         
-        infoImageView.snp.makeConstraints { make in
+        infoButton.snp.makeConstraints { make in
             make.top.equalTo(detailsView.snp.topMargin).offset(20)
             make.leading.equalTo(detailsView.snp.leading).offset(16)
         }
         
         detailsLabel.snp.makeConstraints { make in
             make.top.equalTo(detailsView.snp.topMargin).offset(28)
-            make.leading.equalTo(infoImageView.snp.trailing).offset(12)
+            make.leading.equalTo(infoButton.snp.trailing).offset(12)
         }
         
         caretImageView.snp.makeConstraints { make in
@@ -154,7 +154,7 @@ private extension ViewController {
             view.didSelectView = { [weak self] in
                 guard let self else { return }
                 view.set(textColor: colors[model.id])
-                view.set(image: .receipt)
+                print(debugMessages[model.id])
             }
             
             containersStackView.addArrangedSubview(view)
@@ -198,8 +198,8 @@ private extension ViewController {
         detailsView.backgroundColor = .systemBackground
         detailsView.layer.cornerRadius = 12
         
-        infoImageView.image = .info
-        infoImageView.contentMode = .scaleAspectFit
+        infoButton.setImage(.info, for: .normal)
+        infoButton.contentMode = .scaleAspectFit
         
         detailsLabel.textColor = .label
         detailsLabel.font = .systemFont(ofSize: 16, weight: .regular)
@@ -218,17 +218,17 @@ private extension ViewController {
 private extension ViewController {
     
     func setupText() {
-        clientLabel.text = "Aleksander Dmitrievich V."
+        clientLabel.text = NSLocalizedString("Aleksander Dmitrievich V.", comment: "client full name")
         
-        totalCostLabel.text = "100$"
+        totalCostLabel.text = NSLocalizedString("100$", comment: "totalCost label")
         
-        feeLabel.text = "No commission"
+        feeLabel.text = NSLocalizedString("No commission", comment: "fee label")
         
-        transactionDateLabel.text = "Completed, 12 September 16:00"
+        transactionDateLabel.text = NSLocalizedString("Completed, 12 September 16:00", comment: "transaction status with date")
         
-        detailsLabel.text = "Operation details"
+        detailsLabel.text = NSLocalizedString("Operation details", comment: "details label")
         
-        detailsButton.setTitle("To Main", for: .normal)
+        detailsButton.setTitle(NSLocalizedString("To Main", comment: "button title"), for: .normal)
     }
     
 }
@@ -239,12 +239,29 @@ private extension ViewController {
     
     func setupBehavior() {
         
+        infoButton.addTarget(self, action: #selector(iconTap(sender:)), for: .touchUpInside)
+        
         detailsButton.addTarget(self, action: #selector(testTap(sender:)), for: .touchUpInside)
     }
+    
+    @objc
+    func iconTap(sender: UIButton) {
+        let alertController = UIAlertController(title: NSLocalizedString("Congratulations! 🎉", comment: "Alert title"), message: NSLocalizedString("The alert is now working correct!", comment: "Alert message"), preferredStyle: .alert)
         
+        let closeAction = UIAlertAction(title: NSLocalizedString("Close Alert", comment: "Action Alert button"), style: .default) { _ in
+            self.dismiss(animated: true)
+        }
+        alertController.addAction(closeAction)
+        present(alertController, animated: true)
+        animateView(sender)
+    }
+    
     @objc
     func testTap(sender: UIButton) {
-        print("Test passed!")
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+        
+        detailsButton.backgroundColor = .systemRed
         animateView(sender)
     }
     
@@ -261,3 +278,7 @@ private extension ViewController {
     
     
 }
+
+#Preview(traits: .portrait, body: {
+    ViewController()
+})
